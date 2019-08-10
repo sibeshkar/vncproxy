@@ -71,7 +71,8 @@ func main() {
 
 		// }
 		fbupdate := &pb.FramebufferUpdate{}
-		pbutil.ReadDelimited(reader, fbupdate)
+		n, err := pbutil.ReadDelimited(reader, fbupdate)
+		fmt.Println(n, err)
 		writeFbupdate(fbupdate, &i)
 		time.Sleep(1 * time.Second)
 	}
