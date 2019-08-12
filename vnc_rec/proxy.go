@@ -4,8 +4,6 @@ import (
 	"net"
 	"os"
 	"path"
-	"strconv"
-	"time"
 
 	"github.com/amitbet/vncproxy/client"
 	"github.com/amitbet/vncproxy/common"
@@ -85,8 +83,7 @@ func (vp *VncProxy) newServerConnHandler(cfg *server.ServerConfig, sconn *server
 	var rec_s *CustomServerRecorder
 
 	if session.Type == SessionTypeRecordingProxy {
-		timeCurrent := strconv.FormatInt(time.Now().Unix(), 10)
-		recFolder := path.Join(vp.RecordingDir, "recording_"+timeCurrent)
+		recFolder := vp.RecordingDir
 		os.MkdirAll(recFolder, os.ModePerm)
 		// recServerFile := "server.rbs"
 		// recServerPath := path.Join(recFolder, recServerFile)
