@@ -64,6 +64,7 @@ func NewCustomClientRecorder(saveFilePath string) (*CustomClientRecorder, error)
 
 func (r *CustomClientRecorder) writeStartSession(initMsg *common.ServerInit) error {
 	r.sessionStartWritten = true
+
 	desktopName := string(initMsg.NameText)
 	framebufferWidth := initMsg.FBWidth
 	framebufferHeight := initMsg.FBHeight
